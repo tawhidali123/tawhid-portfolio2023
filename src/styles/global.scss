@@ -1,0 +1,32 @@
+// import all stylesheets 
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Roboto+Mono');
+// Import all of Bootstrap's CSS
+@import "~bootstrap/scss/bootstrap";
+
+
+// font-family: 'Roboto Mono', monospace;
+// font-family: 'Inconsolata', monospace;
+
+* {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body{
+    margin: 0;
+}
+
+.portfolio-container{
+    // position: relative;
+}
+
+
+.modal-backdrop.show{
+    opacity: .85;
+}
+
+h1,h2,h3,h4,h5,h6,p,span,a,li,*{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

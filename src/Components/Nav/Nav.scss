@@ -1,0 +1,387 @@
+.header{
+    display: grid;
+    position: relative;
+}
+
+.nav{
+    background: transparent;    
+    padding: 15px 30px;
+    display: grid;
+    grid-gap: 15px;
+    // grid-template-columns:  1fr;
+    grid-template-columns: repeat(2, 1fr);
+
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all 0.3s linear;
+
+    @media(min-width: 768px){
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap:  0 15px;
+    }
+}
+
+.nav-left{
+    width: 50%;
+
+    p.full-name{
+        font-family: 'Inconsolata', monospace;
+        font-weight: 600;
+        color: #fff;
+        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+
+        a{
+            text-decoration: none;
+        }
+
+    }
+}
+
+.nav-right{
+    display: flex;
+    justify-content: flex-end;
+    // justify-content: center;
+    align-self: center;
+    width: 45%;
+
+    ul{
+        padding: 0;
+        margin: 0;
+        display: none;
+        margin-right: 30px;
+        align-items: center;
+        justify-content: center;
+
+        @media(min-width: 768px){
+            display: inline-flex;
+        }
+    }
+
+    li.nav-item{
+        list-style-type: none;
+        display: inline-block;
+        margin: 0 7.5px;
+        padding: 0 7.5px;
+        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+        0px 8px 13px rgba(0,0,0,0.1),
+        0px 18px 23px rgba(0,0,0,0.1);
+        transition: 0.25s linear;
+
+        &:hover{
+            background:#eb5757;
+            box-shadow: 0 8px 6px -6px #222;
+        }
+
+        a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: 'Roboto Mono',  monospace;
+        }
+
+    }
+
+    button.contact-btn{
+        display: inline-block;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(to right, #eb5757 50%, #fff 50%);
+        padding: 12px 24px;
+        border-radius: 50px;
+        background-size: 200%;
+        background-position-x: 0%;
+        transition: all 0.35s linear;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono',  monospace;
+    
+
+        &:hover{
+            background-position-x: 100%;
+
+
+            .copy{
+                transform: translateX(-200%);
+            }
+
+            .icons{
+                transform: translateX(0%);
+            }
+        }
+
+
+        .copy{
+            position: relative;
+            left: 0; 
+            transform: translateX(0%);
+            top: 0;
+            color: #fff;
+            font-weight: 700;
+            font-size: 13.5px;
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: 0.35s linear all;
+
+        }
+
+        .icons{
+            position: absolute;
+            left: 0;
+            transform: translateX(100%);
+            top:0;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            transition: 0.35s linear all;
+            background: #fff;
+
+
+            span{
+                display: block;
+                margin: 0 7.5px;
+
+                &::before{
+                    color: #eb5757;
+                    font-size: 1.25rem;
+                }
+
+            }
+
+        }
+
+    }
+}
+
+p.full-name{
+    margin: 0 auto;
+}
+
+span.first-name{
+    color: #fff;
+}
+
+span.last-name{
+    color: #eb5757;
+}
+
+
+
+.contact-modal-close{
+    color: #fff;
+    font-size: 3rem;
+    right: 15px;
+    top: 15px;
+    position: absolute;
+    opacity: 1;
+
+    @media(min-width: 768px){
+        right: 60px;
+        top: 30px;
+        font-size: 5rem;
+    }
+
+    &:hover{
+        box-shadow: none;
+        text-shadow: none;
+        color: #eb5757;
+        opacity: 1;
+
+    }
+}
+
+.close:not(:disabled):not(.disabled):hover{
+    opacity: 1;
+}
+
+.contact-modal.show{
+    .contact-modal-container{
+        margin: 100px 15px;
+
+        @media(min-width: 768px){
+            transform: translateY(-50%);
+            top: 50%;
+            margin: 0 auto;
+    
+        }
+    }
+}
+
+
+.contact-modal-body{
+    @media(min-width: 768px){
+        border: 5px solid #eb5757;
+    }
+}
+
+.modal-body--wrapper{
+    display: grid;
+
+
+    @media(min-width: 768px){
+        grid-template-columns: 2fr 5fr
+    }
+
+
+    .left{
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+
+        p{
+            font-family: 'Inconsolata', monospace;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('../../Images/contact-bg.jpg');
+            margin: 0 auto 15px;
+            text-align: center;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+
+            @media(min-width: 768px){
+                min-height: 300px;
+                margin: 0;
+                -webkit-writing-mode: vertical-rl;
+                font-size: 3rem;
+            }
+        }
+    }
+
+
+    .right{
+
+        @media(max-width: 767px){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        & > div{
+            padding: 50px 15px;
+            background:#eb5757;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.25s linear;
+            border: 2px solid #fff;
+
+
+            @media(min-width: 768px){
+                padding: 100px 30px;    
+            }
+
+
+            &:hover{
+
+                background: #fff;
+                a span{
+                    &:after{
+                        background-color: rgba(255,255,255, 1);
+                        opacity: 1;
+                        visibility: visible;
+                        border: 2px solid #fff;
+                    }
+                }
+            }
+
+            &:first-child{
+                span{
+                    &:after{
+                        content: "Email";
+                    }
+                }
+            }
+
+            &:last-child{
+                span{
+                    &:after{
+                        content: "Phone";
+                    }
+                }
+            }
+
+            a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                text-decoration: none;
+                font-size: 2rem;
+                transition: all 0.25s linear;
+
+                span{
+                    &:after{
+                        visibility: hidden;
+                        opacity: 0;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        z-index: 10;
+                        display: flex;
+                        position: absolute;
+                        justify-content: center;
+                        align-items: center;
+                        transition: all 0.25s linear;
+                        font-family: 'Roboto Mono',  monospace;
+                        background-image: url("/public/img/contact-bg.jpg");
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-position: center top;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        font-size: 2.75rem;
+
+                        @media(min-width: 768px){
+                            font-size: 4.25rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: #fff;
+    
+    .nav-right .nav-item a,
+    .nav-left .full-name span.first-name{
+        color: #000000
+    }
+
+
+}
+
+
+.hide-mobile {
+    @media(max-width: 639px){
+        display: none;
+    }
+}
+
+.hide-desktop {
+    @media(min-width: 640px){
+        display: none;
+    }
+}
