@@ -9,8 +9,6 @@ import multiplierImg from '../../Images/multiplier-mania.png';
 import edjSportsImg from '../../Images/edj-sports.png';
 import preferredHotelImg from '../../Images/preferred-hotels.png';
 
-import WOW from 'wowjs';
-
 // import styles
 import "./Projects.scss";
 
@@ -134,25 +132,6 @@ const Projects = () => {
             return <Card key={key} {...card}></Card>;
         })
     }
-
-    const wowConfig = {
-    
-        boxClass:     'wow',      // animated element css class (default is wow)
-        animateClass: 'animated', // animation css class (default is animated)
-        offset:       0,          // distance to the element when triggering the animation (default is 0)
-        mobile:       false,       // trigger animations on mobile devices (default is true)
-        live:         true,       // act on asynchronously loaded content (default is true)
-        callback:     function() {
-        // the callback is fired every time an animation is started
-        // the argument that is passed in is the DOM node being animated
-        },
-        scrollContainer: null // optional scroll container selector, otherwise use window
-    
-    }
-
-    const animateOnScroll = new WOW.WOW(wowConfig);
-
-    animateOnScroll.init();
 
     return(
         <div id="projects" className="projects">
